@@ -3,7 +3,7 @@ create table webscraping.HH_vacancies
 dt datetime not null,
 keyword varchar(100) not null,
 vacancy_title varchar(120) not null,
-vacancy_tags varchar(500)  null,
+vacancy_tags varchar(1000)  null,
 vacancy_experience varchar(100) null default 'не указано',
 employment_mode varchar(120) null default 'не указано',
 vacancy_salary varchar(100) null default 'не указано',

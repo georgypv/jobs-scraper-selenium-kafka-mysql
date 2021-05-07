@@ -169,21 +169,20 @@ def scrape_HH_to_kafka(browser, producer, keyword='Python', pages2scrape=3, topi
         while pages2scrape > 0:
             vacancy_cards = get_vacancies_on_page(browser=browser)
             for card in vacancy_cards:
-                vacancy_info = get_vacancy_info(card, browser=browser, keyword=keyword, verbose=verbose)           
-
+                vacancy_info = get_vacancy_info(card, browser=browser, keyword=keyword, verbose=verbose)          
                 #sending scraping results to kafka
                 send_message(producer, topic_name=topic_name, msg=vacancy_info)
 
-                if verbose:
-                    print('Inserted row')
             try:
                 #click to the "Next" button to load other vacancies
                 browser.find_element_by_xpath('//a[@data-qa="pager-next"]').click()
-                print('Go to the next page')
+                   
             except (NoSuchElementException, ElementNotInteractableException):
                 break
             finally:
                 pages2scrape -= 1
+                if pages2scrape > 0:
+                     print('Go to the next page')
     
     except KeyboardInterrupt:    
         browser.quit()
