@@ -1,12 +1,15 @@
+create database webscraping;
+use webscraping;
+
 create table webscraping.HH_vacancies
 (id mediumint unsigned not null auto_increment,
 dt datetime not null,
 keyword varchar(100) not null,
 vacancy_title varchar(120) not null,
 vacancy_tags varchar(1000)  null,
-vacancy_experience varchar(100) null default 'не указано',
-employment_mode varchar(120) null default 'не указано',
-vacancy_salary varchar(100) null default 'не указано',
+vacancy_experience varchar(100) null default 'Г­ГҐ ГіГЄГ Г§Г Г­Г®',
+employment_mode varchar(120) null default 'Г­ГҐ ГіГЄГ Г§Г Г­Г®',
+vacancy_salary varchar(100) null default 'Г­ГҐ ГіГЄГ Г§Г Г­Г®',
 vacancy_description text null,
 company_name varchar(120) not null,
 company_link varchar(120) not null,
