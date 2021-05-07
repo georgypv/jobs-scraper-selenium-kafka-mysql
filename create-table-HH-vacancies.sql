@@ -16,3 +16,5 @@ publish_place_and_time varchar(300) not null,
 primary key (id),
 index keyword_IDX (keyword)
 );
+
+alter table webscraping.HH_vacancies add column uid varchar(100) null unique;
