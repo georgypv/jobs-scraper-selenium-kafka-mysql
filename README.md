@@ -19,5 +19,5 @@ For example:
 ```
 python scrape-and-send-to-kafka.py 'Data Analyst' 10 scraped-jobs 1
 
-python read-kafka-and-insert.py scraped-jobs scraped-jobs-data 0
+python read-kafka-and-insert.py scraped-jobs HH_vacancies 0
 ```
