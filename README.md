@@ -12,4 +12,5 @@
 How to run the script:
 
 1. Run Zookeeper and Kafka in the console
-2. Run `python scrape-and-send-to-kafka.py [KEYWORD TO SERACH JOBS] [NUMBER OF PAGES TO SCRAPE] [NAME OF KAFKA TOPIC] [VERBOSE (0 OR 1)]
+2. Run `python scrape-and-send-to-kafka.py [KEYWORD TO SERACH JOBS] [NUMBER OF PAGES TO SCRAPE] [NAME OF KAFKA TOPIC] [VERBOSE (0 OR 1)]`
+3. 
