@@ -5,7 +5,7 @@
 1. Create a database and a table in SQL (I chose MySQL)
 2. Run Kafka on your machine (a laptop with Windows 10 WSL1 in my case)
 3. Scrape job descriptions and other information from a certain website with Selenium (using Chrome driver) and send them to a Kafka topic via a KafkaProducer instance
-4. Instantiate a KafkaConsumer, read job information from the Kafka topic and insert it into a MySQL table 
+4. Instantiate a KafkaConsumer, read a json with job information from the Kafka topic and insert data into a MySQL table 
 
 
 To run the script:
