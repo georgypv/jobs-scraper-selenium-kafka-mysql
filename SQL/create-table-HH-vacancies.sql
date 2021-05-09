@@ -1,6 +1,13 @@
+-- create a database for our project
 create database webscraping;
 use webscraping;
 
+-- create a user with credentials which will be to used to insert data into a table from python
+create user 'python_user' identified by '123';
+grant insert on webscraping.* to 'python_user';
+
+
+-- create a table for data
 create table webscraping.HH_vacancies
 (id mediumint unsigned not null auto_increment,
 dt datetime not null,
@@ -20,4 +27,5 @@ primary key (id),
 index keyword_IDX (keyword)
 );
 
+-- add a column for unique uids 
 alter table webscraping.HH_vacancies add column uid varchar(100) null unique;
