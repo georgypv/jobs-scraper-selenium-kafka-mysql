@@ -1,6 +1,6 @@
 # Scrape job descriptions with Selenium, process and store data with Kafka+MySQL
 
-(to be clear: the **only** purpose of this project is to familiarize **myself** with Selenium, MySQL and Kafka. The result is far away from a production-ready code!)
+(to be clear: the **only** purpose of this project is to familiarize myself more with Selenium, MySQL and Kafka. The result is far away from a production-ready code!)
 
 ## Basic steps:
 
