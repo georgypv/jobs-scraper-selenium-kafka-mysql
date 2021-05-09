@@ -14,8 +14,8 @@ To run the script:
 
 0. Make sure that you've created a database and a table like showed in `SQL/create-table-HH-vacancies.sql`
 1. Run Zookeeper and Kafka in the background
-2. Run `python scrape-and-send-to-kafka.py [KEYWORD TO SERACH JOBS] [NUMBER OF PAGES TO SCRAPE] [NAME OF KAFKA TOPIC] [VERBOSE (0 OR 1)]`
-3. Run `python read-kafka-and-insert.py [NAME OF KAFKA TOPIC] [NAME OF SQL TABLE] [VERBOSE (0 OR 1)]`
+2. (In one console) run `python scrape-and-send-to-kafka.py [KEYWORD TO SERACH JOBS] [NUMBER OF PAGES TO SCRAPE] [NAME OF KAFKA TOPIC] [VERBOSE (0 OR 1)]`
+3. (In another console) run `python read-kafka-and-insert.py [NAME OF KAFKA TOPIC] [NAME OF SQL TABLE] [VERBOSE (0 OR 1)]`
 
 For example:
 
