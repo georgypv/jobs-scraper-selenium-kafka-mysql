@@ -6,8 +6,8 @@ MYSQL_USER  = 'python_user'
 MYSQL_PSWRD = '123'
 MYSQL_HOST = '127.0.0.1'
 MYSQL_PORT = '3306'
-MYSQL_TABLE_NAME = ''
-MYSQL_SCHEMA = ''
+MYSQL_TABLE_NAME = 'HH_vacancies'
+MYSQL_SCHEMA = 'webscraping'
 
 
 KAFKA_HOST = 'localhost:9092'

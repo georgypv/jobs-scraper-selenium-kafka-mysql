@@ -23,7 +23,6 @@ class JobScraper:
         self.pages_left = None
         self.end_of_jobs = False
 
-        self.job_cards= []
         self.jobs_info = []
 
         self.to_kafka = to_kafka
@@ -55,7 +54,8 @@ class JobScraper:
             self.browser.find_element_by_class_name('bloko-icon_cancel').click()
         except (NoSuchElementException, ElementNotInteractableException):
             pass
-        self.job_cards = self.browser.find_elements_by_class_name('vacancy-serp-item ')
+        job_cards = self.browser.find_elements_by_class_name('vacancy-serp-item ')
+        return job_cards
 
 
     def get_job_info(self, card, verbose=True):
@@ -163,17 +163,18 @@ class JobScraper:
         self.pages_left = pages
 
         try:
-            self.get_jobs_on_page()
+            job_cards = self.get_jobs_on_page()
         except (NoSuchElementException, ElementNotInteractableException) as ex:
             raise ex
 
-        if len(self.job_cards) == 0:
+        if len(job_cards) == 0:
             print("Вакансий для запроса '{}' не найдено!".format(self.keyword))
+            self.end_scraping = True
             return
 
         try:
             while self.pages_left > 0:
-                for card in self.job_cards:
+                for card in job_cards:
                     job_info = self.get_job_info(card, verbose=verbose)
                     self.jobs_info.append(job_info)
 
@@ -186,6 +187,7 @@ class JobScraper:
                 except (NoSuchElementException, ElementNotInteractableException):
                     print("Больше нет вакансий по запросу: '{}'".format(self.keyword))
                     self.end_of_jobs = True
+                    self.end_scraping = True
                     break
                 finally:
                     self.pages_left -= 1
