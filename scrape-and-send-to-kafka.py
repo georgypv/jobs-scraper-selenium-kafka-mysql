@@ -14,35 +14,21 @@ print(f'''Arguments:
 
 if __name__ == '__main__':
 
-    try:
-        scraper = JobScraper(driver_path=DRIVER_PATH, headless=HEADLESS, keyword=KEYWORD)
-    except Exception as ex:
-        print(str(ex))
-        scraper.kafka_producer.close()
-        scraper.browser.quit()
+    scraper = JobScraper(driver_path=DRIVER_PATH, headless=HEADLESS, keyword=KEYWORD)
 
     pages2scrape = PAGES
     while not scraper.end_scraping:
-
         scraper.start_scraping(pages=pages2scrape, verbose=VERBOSE)
-
         if (scraper.pages_left <= 0) and not scraper.end_of_jobs:
 
             good_response = False
             while not good_response:
-                response = input("All {} pages have been scraped! Scrape more pages? (y/n)".format(scraper.pages2scrape))
+
+                response = input("All {} pages have been scraped! Scrape more pages? (y/n)  ".format(scraper.pages2scrape))
                 if response.strip().lower() == 'y':
-                    good_number = False
-                    tries = 5
-                    while not good_number or tries > 0:
-                        add_pages = input("How many pages?")
-                        try:
-                            pages2scrape = int(add_pages)
-                            good_response = True
-                            good_number = True
-                        except ValueError:
-                            print("Input must be a number!")
-                            tries -= 1
+                    add_pages = input("How many pages?  ")
+                    pages2scrape = int(add_pages)
+                    good_response = True
                 elif response.strip().lower() == 'n':
                     good_response = True
                     scraper.end_scraping = True

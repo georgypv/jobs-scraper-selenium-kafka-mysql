@@ -1,5 +1,4 @@
 import sys
-
 from jobs_writer import JobsWriter
 from utils.kafka_consumer_and_producer import kafka_consumer
 from myconfigs import MYSQL_TABLE_NAME, MYSQL_SCHEMA
@@ -7,9 +6,7 @@ from myconfigs import MYSQL_TABLE_NAME, MYSQL_SCHEMA
 VERBOSE = bool(int(sys.argv[1]))
 
 
-print(f'''Arguments:
-                    VERBOSE: {str(VERBOSE)}''')
-
+print(f'''Arguments: VERBOSE: {str(VERBOSE)}''')
 
 
 if __name__ == '__main__':

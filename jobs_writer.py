@@ -16,12 +16,12 @@ class JobsWriter:
         
         
     def _get_db_connection(self):
-        con = self.engine.connect()
+        con = self.mysql_engine.connect()
         return con
 
     def insert_data(self, data, verbose=True):
 
-        metadata = sa.MetaData(bind=self.engine)
+        metadata = sa.MetaData(bind=self.mysql_engine)
         table = sa.Table(self.table_name, metadata, autoload=True, schema=self.schema)
         try:
             self.db_con.execute(table.insert().values(data))
