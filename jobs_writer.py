@@ -46,6 +46,8 @@ class JobsWriter:
                 else:
                     self.insert_data(message, verbose=verbose)
         except KeyboardInterrupt:
+            if batch_insert and len(batch) > 0:
+                self.insert_data(batch, verbose=verbose)
             self.kafka_consumer.close()
             print("Closed consumer!")
             self.db_con.close()
